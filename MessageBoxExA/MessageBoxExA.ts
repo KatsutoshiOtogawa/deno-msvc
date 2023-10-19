@@ -17,6 +17,7 @@ function MessageBoxExA(hwnd: HWND,lpText: LPCSTR | null, lpCaption: LPCSTR | nul
         uType,
         wLanguageId
       )
+      // 値が０の場合はGetlastErrorを取得して、そこからthrow
       //   // errnoの値を一緒に返すほうがいいかも。
       //   if (result < 0) {
       //     const err = GetLastError();
