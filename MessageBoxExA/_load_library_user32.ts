@@ -9,16 +9,16 @@ const CallSymbol = {
       "pointer",
       // ANSI文字列へのポインタ
 //   [in, optional] LPCTSTR lpText,
-      "buffer",
+      "pointer",
 //   [in, optional] LPCTSTR lpCaption,
       "pointer",
 //   [in]           UINT    uType
       "u32",
       //  [in]           WORD   wLanguageId
-      "u32",
+      "u16",
     ],
     // DWORDはu32
-    result: "i32"
+    result: "u32"
   },
      
 } as const

@@ -8,8 +8,9 @@ export { mbtowc } from './mbtowc/mbtowc.ts';
 export { MessageBoxExA } from './MessageBoxExA/MessageBoxExA.ts';
 export { MessageBoxExW } from './MessageBoxExW/MessageBoxExW.ts';
 
-export { NULL } from './NULL/NULL.ts';
 export { type HWND } from './HWND/HWND.ts';
-export { type DWORD } from './DWORD/DWORD.ts';
+export { type DWORD, type_gurad_DWORD } from './DWORD/DWORD.ts';
+export { type WORD, type_gurad_WORD } from './WORD/WORD.ts';
+export { type UINT, type_gurad_UINT } from './UINT/UINT.ts';
 export { type size_t } from './size_t/size_t.ts';
 export { type size_wchar_t } from './size_wchar_t/size_wchar_t.ts';

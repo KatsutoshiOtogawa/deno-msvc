@@ -1,22 +1,21 @@
 import { load } from "./load_library_user32.ts";
+import { HWND } from "../HWND/HWND.ts";
+import { LPCSTR } from "../LPCSTR/LPCSTR.ts";
+import { UINT, type_gurad_UINT } from "../UINT/UINT.ts";
+import { WORD, type_gurad_WORD } from "../WORD/WORD.ts";
+import { DWORD } from "../DWORD/DWORD.ts";
 
-function MessageBoxExA(mes: string) {
+function MessageBoxExA(hwnd: HWND,lpText: LPCSTR | null, lpCaption: LPCSTR | null, uType: UINT,wLanguageId: WORD): DWORD {
     const { MessageBoxExA, library } = load();
 
+    let result: DWORD | undefined;
     try {
-      // // 末端に文字列追加。
-        const buforig = new TextEncoder().encode(mes);
-        const buf = new Uint8Array(buforig.length + 1);
-        buf.set(buforig);
-        buf[buf.length] = 0; // \0 terminator
-        // let result = puts(buf);
-
-      MessageBoxExA(
-        NULL,
-        buf,
-        NULL,
-        1,
-        0
+      result = MessageBoxExA(
+        hwnd,
+        lpText,
+        lpCaption,
+        uType,
+        wLanguageId
       )
       //   // errnoの値を一緒に返すほうがいいかも。
       //   if (result < 0) {
@@ -28,28 +27,10 @@ function MessageBoxExA(mes: string) {
     } finally {
       library.close();
     }
+
+  return result;
 }
 
 export {
   MessageBoxExA
 }
-
-/** main function */
-/** 手動チェック用 */
-if (import.meta.main) {
-  
-  if (Deno.args.length >= 2) {
-
-    console.error("Too many args.")
-    Deno.exit(1);
-  }
-  if (Deno.args.length == 0) {
-    console.error("Few args.")
-    // Deno.exit(1);
-  }
-  const mes = Deno.args[0];
-
-  MessageBoxExA(mes);
-
-}
-
