@@ -8,6 +8,8 @@ export { mbtowc } from './mbtowc/mbtowc.ts';
 export { MessageBoxExA } from './MessageBoxExA/MessageBoxExA.ts';
 export { MessageBoxExW } from './MessageBoxExW/MessageBoxExW.ts';
 
+export { strcpy } from './strcpy/strcpy.ts';
+
 export { type HWND } from './HWND/HWND.ts';
 export { type DWORD, type_gurad_DWORD } from './DWORD/DWORD.ts';
 export { type WORD, type_gurad_WORD } from './WORD/WORD.ts';

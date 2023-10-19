@@ -221,6 +221,11 @@ const IDTRYAGAIN = 10;
  */
 const IDYES = 6;
 
+// type guard付きで後で書く。
+// type MessageBoxExReturnValue = [
+
+// ]
+
 export {
 /// To indicate the buttons displayed in the message box, specify one of the following values.
   MB_ABORTRETRYIGNORE,
