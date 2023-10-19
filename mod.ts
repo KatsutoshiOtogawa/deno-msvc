@@ -9,6 +9,8 @@ export { MessageBoxExA } from './MessageBoxExA/MessageBoxExA.ts';
 export { MessageBoxExW } from './MessageBoxExW/MessageBoxExW.ts';
 
 export { strcpy } from './strcpy/strcpy.ts';
+export { getchar } from './getchar/getchar.ts';
+export { putchar } from './putchar/putchar.ts';
 
 export { type HWND } from './HWND/HWND.ts';
 export { type DWORD, type_gurad_DWORD } from './DWORD/DWORD.ts';
