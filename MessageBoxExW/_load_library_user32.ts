@@ -15,7 +15,7 @@ const CallSymbol = {
 //   [in]           UINT    uType
       "u32",
       //  [in]           WORD   wLanguageId
-      "u32",
+      "u16",
     ],
     // DWORDはu32
     result: "i32"

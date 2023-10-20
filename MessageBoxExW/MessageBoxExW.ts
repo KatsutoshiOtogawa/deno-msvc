@@ -1,20 +1,28 @@
-import { load } from "./load_library_user32.ts";
+// import { load } from "./load_library_user32.ts";
 
-function MessageBoxExW(hWnd: Deno.PointerValue<unknown>, lpText: Deno.PointerValue<unknown>, lpCaption: Deno.PointerValue<unknown>, uType: number, wLanguageId: number): number | undefined {
+import { load } from "./load_library_user32.ts";
+import { HWND } from "../HWND/HWND.ts";
+import { LPCSTR } from "../LPCSTR/LPCSTR.ts";
+import { UINT, type_gurad_UINT } from "../UINT/UINT.ts";
+import { WORD, type_gurad_WORD } from "../WORD/WORD.ts";
+import { DWORD } from "../DWORD/DWORD.ts";
+
+function MessageBoxExW(hwnd: HWND,lpText: LPCSTR | null, lpCaption: LPCSTR | null, uType: UINT,wLanguageId: WORD): DWORD {
+// function MessageBoxExW(hWnd: Deno.PointerValue<unknown>, lpText: Deno.PointerValue<unknown>, lpCaption: Deno.PointerValue<unknown>, uType: number, wLanguageId: number): number | undefined {
   const { MessageBoxExW, library } = load();
 
   let result: number | undefined;
   try {
 
     result = MessageBoxExW(
-      hWnd,
+      hwnd,
       lpText,
       lpCaption,
       uType,
       wLanguageId
     );
     //   // errnoの値を一緒に返すほうがいいかも。
-    //   if (result < 0) {
+    //   if (result === 0) {
     //     const err = GetLastError();
     //       // errになる。
     //     console.log(err);
